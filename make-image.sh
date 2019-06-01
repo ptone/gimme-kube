@@ -14,16 +14,16 @@ gcloud compute instances create $instance \
 --metadata-from-file startup-script=prep-image.sh
 
 
-echo -n "installing kubeadm..."
+echo -n "Installing kubeadm..."
 until gcloud compute instances describe $instance --format='value("status")' --zone=$zone | grep -q "TERMINATED";
 do 
-  echo -n '.'
+  echo -n '🔧 '
   sleep 3; 
 done
 echo
-
+echo "💥 Deleting image maker Instance"
 gcloud compute instances delete $instance --zone=$zone --quiet & > /dev/null 2>&1
-echo "Creating image"
+echo "💾 Creating image"
 gcloud compute images create ${image_name} --source-disk $instance --source-disk-zone=$zone
-echo "Removing image maker disk"
+echo "🗑  Removing image maker disk"
 gcloud compute disks delete $instance --zone=$zone --quiet & > /dev/null 2>&1
