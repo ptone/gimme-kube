@@ -1,6 +1,6 @@
 #!/bin/bash
 
-boxname=kube-box-b
+boxname=kube-box
 zone="${ZONE:-us-west2-a}"
 project=$(gcloud config list project --format "value(core.project)" )
 image_name=kubebox
@@ -49,7 +49,7 @@ done
 
 echo
 
-echo 🖍  Installing cluster networking
+echo "🖍  Installing cluster networking"
 # kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 kubectl apply -f https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/rbac-kdd.yaml 1>&2
 kubectl apply -f https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml 1>&2

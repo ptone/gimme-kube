@@ -19,6 +19,17 @@ To get an instance:
 bash gimme.sh
 ```
 
+
+📍 Creating Instance  
+👮 Creating Firewall Rule  
+🔧 Waiting for kubeadmin setup  
+💫 Fetching kubeconfig  
+🔌 Waiting for API Server  
+🖍  Installing cluster networking  
+💥 Removing master taint to allow workloads on node  
+🎉 Done
+
+
 Then follow the instruction to:
 
 ```
