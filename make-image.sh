@@ -7,7 +7,7 @@ image_name=kubebox
 
 gcloud compute instances create $instance \
 --zone=$zone --machine-type=n1-standard-2 \
---image=ubuntu-minimal-1804-bionic-v20190429 \
+--image=ubuntu-minimal-1804-bionic-v20191024 \
 --image-project=ubuntu-os-cloud \
 --no-boot-disk-auto-delete \
 --async \
